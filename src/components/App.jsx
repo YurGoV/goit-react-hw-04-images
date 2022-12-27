@@ -39,6 +39,8 @@ export const App = () => {
         prevPage.current = page
       }
 
+      loaderLoad(true)
+
       const fetch = async () => {
 
         const response = await getImages(query, page, perPage);
@@ -97,6 +99,14 @@ export const App = () => {
         fetchError={fetchError}
       >
       </ImageGallery>
+      {/*<NewImageGallery*/}
+      {/*  images={queryResponse}*/}
+      {/*  page={page}*/}
+      {/*  totalImages={totalImages}*/}
+      {/*  loadMore={loadMore}*/}
+      {/*  fetchError={fetchError}*/}
+      {/*>*/}
+      {/*</NewImageGallery>*/}
 
       <ToastContainer
         autoClose={2000}
