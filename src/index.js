@@ -7,8 +7,15 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    {/*<OldApp />*/}
   </React.StrictMode>
 );
+
+//REFACTORING TO HOOKS:
+//todo: DRAFTdone App
+//todo: ImageGallery
+//todo: ?Modal
+//todo:
 
 
 
