@@ -27,15 +27,13 @@ export const ImageGallery = ({images, page, totalImages, loadMore}) => {
       setLoading(false);
     }
 
-    if (images.length > 0) {//todo: more?
+    if (images.length > 0) {
       setLoading(true);
-      setModal(true);//todo: ???
+      // setModal(true);
       setStatus('pending');
-      if (page === 1) {
         prevWindowHeight.current = document.body.scrollHeight;
-      }
     }
-  }, [images, loading, page])
+  }, [images, loading])
 
   const onClick = (value) => {
     const {link, alt} = value.target.dataset;
