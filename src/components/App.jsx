@@ -35,7 +35,8 @@ export const App = () => {
         }
 
         if (response.hits.length === 0) {
-          setQuery(prevQuery.current)
+          setQuery(prevQuery.current);
+          setPage(prevPage.current);
           return toast('Sorry, we couldn\'t find any images according to your request :(');
         }
 
@@ -51,6 +52,7 @@ export const App = () => {
           setQueryResponse(response.hits);
           setTotalImages(response.totalHits);
         } else {
+          prevPage.current = page;
           setQueryResponse([...queryResponse, ...response.hits]);
         }
       }
