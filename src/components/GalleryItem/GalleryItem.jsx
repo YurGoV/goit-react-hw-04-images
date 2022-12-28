@@ -35,7 +35,6 @@ export const GalleryItem = ({images, onImagesLoaded}) => {
           <Img
             src={image.webformatURL}
             onLoad={onImagesLoad}
-            loading="lazy"
             data-link={image.largeImageURL}
             data-alt={image.tags}
             dataset={'test'}
