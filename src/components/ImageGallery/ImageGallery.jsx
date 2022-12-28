@@ -31,7 +31,6 @@ export const ImageGallery = ({images, page, totalImages, loadMore}) => {
       setLoading(true);
       // setModal(true);
       setStatus('pending');
-        prevWindowHeight.current = document.body.scrollHeight;
     }
   }, [images, loading])
 
@@ -41,11 +40,9 @@ export const ImageGallery = ({images, page, totalImages, loadMore}) => {
     const imageLink = link;
     const imageAlt = alt
     if (value.target.nodeName === 'IMG' && link) {
-      // this.setState({
       setModal({link: imageLink, alt: imageAlt});
       setModalLoader(true);//todo: status-pending?//NO. modalImage??
       setModalImage(true);
-      // })
     }
   }
 
@@ -64,6 +61,9 @@ export const ImageGallery = ({images, page, totalImages, loadMore}) => {
 
   const onImagesLoaded = () => {
     setStatus('idle');
+    if (page === 1) {
+      prevWindowHeight.current = document.body.scrollHeight;//todo: переробити - винести за  імгЛоад
+    }
     if (page > 1) {
       scroll.scrollTo(prevWindowHeight.current - 100);//todo: замінити 100 на висоту футера
       prevWindowHeight.current = document.body.scrollHeight;
