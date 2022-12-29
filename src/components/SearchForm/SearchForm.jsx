@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 import PropTypes from "prop-types";
 
 
-export const SearchForm = ({onSubmit, loader}) => {
+export const SearchForm = ({onSubmit, smallLoader}) => {
 
   const onFormicSubmit = (values, {resetForm}) => {
     if (values.query.trim() === '') {
@@ -22,8 +22,8 @@ export const SearchForm = ({onSubmit, loader}) => {
 
       <Form>
         <Button type="submit">
-          <Loader loader={loader}></Loader>
-          {!loader &&
+          <Loader loader={smallLoader}></Loader>
+          {!smallLoader &&
             <Span>Search</Span>
           }
         </Button>
