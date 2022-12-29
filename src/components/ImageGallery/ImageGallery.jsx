@@ -10,6 +10,7 @@ import {Message} from "../Messages/Messages";
 import {perPage} from "../App";
 import PropTypes from "prop-types";
 import {animateScroll as scroll} from 'react-scroll'
+import {LoaderDiv} from "./ImageGallery.styled";
 
 export const ImageGallery = ({images, page, totalImages, loadMore, smallLoader}) => {
   const [modal, setModal] = useState(true);//todo: відмовитись від буліана - стейт машина + НаН. сюди - тільки валью
@@ -32,7 +33,7 @@ export const ImageGallery = ({images, page, totalImages, loadMore, smallLoader})
       // setModal(true);
       setStatus('pending');
     }
-  }, [images, loading])
+  }, [images])
 
   const onClick = (value) => {
     const {link, alt} = value.target.dataset;
@@ -106,7 +107,11 @@ export const ImageGallery = ({images, page, totalImages, loadMore, smallLoader})
           </Ul>}
 
       </Gallery>
-      {LoadMoreBtn() && status === 'idle' && !smallLoader && <ButtonStyled onClick={onLoadMore}>Load More</ButtonStyled>}
+      <LoaderDiv>
+      {LoadMoreBtn() && status === 'idle' && !smallLoader &&
+        <ButtonStyled onClick={onLoadMore}>Load More</ButtonStyled>
+      }
+      </LoaderDiv>
     </>
   )
 
