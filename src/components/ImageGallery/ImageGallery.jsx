@@ -11,7 +11,7 @@ import {perPage} from "../App";
 import PropTypes from "prop-types";
 import {animateScroll as scroll} from 'react-scroll'
 
-export const ImageGallery = ({images, page, totalImages, loadMore}) => {
+export const ImageGallery = ({images, page, totalImages, loadMore, smallLoader}) => {
   const [modal, setModal] = useState(true);//todo: відмовитись від буліана - стейт машина + НаН. сюди - тільки валью
   const [imageOpacity, setImageOpacity] = useState(0);
   const [modalLoader, setModalLoader] = useState(true);
@@ -106,7 +106,7 @@ export const ImageGallery = ({images, page, totalImages, loadMore}) => {
           </Ul>}
 
       </Gallery>
-      {LoadMoreBtn() && <ButtonStyled onClick={onLoadMore}>Load More</ButtonStyled>}
+      {LoadMoreBtn() && status === 'idle' && !smallLoader && <ButtonStyled onClick={onLoadMore}>Load More</ButtonStyled>}
     </>
   )
 

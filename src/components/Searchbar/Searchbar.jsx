@@ -3,11 +3,11 @@ import {Header} from "./Searchbar.styled";
 import {SearchForm} from "../SearchForm/SearchForm";
 import PropTypes from "prop-types";
 
-export const Searchbar = ({onSubmit, loader}) => {
+export const Searchbar = ({onSubmit, smallLoader}) => {
 
   return (
     <Header>
-      <SearchForm loader={loader} onSubmit={onSubmit}></SearchForm>
+      <SearchForm smallLoader={smallLoader} onSubmit={onSubmit}></SearchForm>
     </Header>
   )
 }

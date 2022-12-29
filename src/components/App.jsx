@@ -13,7 +13,7 @@ export const App = () => {
   const [queryResponse, setQueryResponse] = useState(NaN);
   const [page, setPage] = useState(1);
   const [totalImages, setTotalImages] = useState(0);
-  const [loader, setLoader] = useState(true);
+  const [smallLoader, setSmallLoader] = useState(true);
   const prevQuery = useRef('motorcycles');
   const prevPage = useRef(1);
 
@@ -70,20 +70,21 @@ export const App = () => {
   }
 
   const loaderLoad = (status) => {
-    setLoader(status);
+    setSmallLoader(status);
     // })
   }
 
   return (
     <Div>
 
-      <Searchbar onSubmit={searchOnQuery} loader={loader}></Searchbar>
+      <Searchbar onSubmit={searchOnQuery} smallLoader={smallLoader}></Searchbar>
 
       <ImageGallery
         images={queryResponse}
         page={page}
         totalImages={totalImages}
         loadMore={loadMore}
+        smallLoader={smallLoader}
       >
       </ImageGallery>
 
